@@ -1,0 +1,54 @@
+{
+  "publisher": "maxchang3",
+  "name": "vscode-hexo-markmap",
+  "displayName": "vscode-hexo-markmap",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.cjs",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-hexo-markmap.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "configuration": {
+      "title": "vscode-hexo-markmap",
+      "properties": {
+        "vscode-hexo-markmap.message": {
+          "type": "string",
+          "default": "Hello World",
+          "description": "The message to show in the notification"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup --env.NODE_ENV production --treeshake",
+    "dev": "tsup --watch ./src --env.NODE_ENV development",
+    "typecheck": "tsc --noEmit",
+    "vscode:prepublish": "pnpm run build"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "@types/vscode": "^1.89.0",
+    "reactive-vscode": "^0.2.13",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
