@@ -1,7 +1,7 @@
 {
   "publisher": "maxchang3",
   "name": "vscode-hexo-markmap",
-  "displayName": "vscode-hexo-markmap",
+  "displayName": "Markdown Preview Hexo Markmap Support",
   "type": "module",
   "version": "0.0.1",
   "private": true,
