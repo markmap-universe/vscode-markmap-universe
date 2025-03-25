@@ -1,17 +1,14 @@
-import { defineExtension, useCommand, useIsDarkTheme, watchEffect } from 'reactive-vscode'
-import { window } from 'vscode'
-import { message } from './configs'
-import { logger } from './utils'
+import type MarkdownIt from 'markdown-it'
+import { defineExtension } from 'reactive-vscode'
+import { markmap } from '@/markdown-it/markmap'
+import { logger } from '@/utils'
+
 
 export = defineExtension(() => {
   logger.info('Extension Activated')
-
-  useCommand('vscode-hexo-markmap.helloWorld', () => {
-    window.showInformationMessage(message.value)
-  })
-
-  const isDark = useIsDarkTheme()
-  watchEffect(() => {
-    logger.info('Is Dark Theme:', isDark.value)
-  })
+  return {
+    extendMarkdownIt(md: MarkdownIt) {
+      return md.use(markmap)
+    }
+  }
 })

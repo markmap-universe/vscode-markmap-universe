@@ -16,22 +16,13 @@
     "onStartupFinished"
   ],
   "contributes": {
-    "commands": [
-      {
-        "command": "vscode-hexo-markmap.helloWorld",
-        "title": "Hello World"
-      }
+    "markdown.markdownItPlugins": true,
+    "markdown.previewScripts": [
+      "./dist/markmap-init.global.js"
     ],
-    "configuration": {
-      "title": "vscode-hexo-markmap",
-      "properties": {
-        "vscode-hexo-markmap.message": {
-          "type": "string",
-          "default": "Hello World",
-          "description": "The message to show in the notification"
-        }
-      }
-    }
+    "markdown.previewStyles": [
+      "./dist/style.css"
+    ]
   },
   "scripts": {
     "build": "tsup --env.NODE_ENV production --treeshake",
@@ -40,11 +31,23 @@
     "vscode:prepublish": "pnpm run build"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "18.x",
     "@types/vscode": "^1.89.0",
+    "markmap-toolbar": "^0.18.10",
+    "radashi": "^12.4.0",
     "reactive-vscode": "^0.2.13",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@node-rs/xxhash": "^1.7.6",
+    "gray-matter": "^4.0.3",
+    "markmap-common": "^0.18.9",
+    "markmap-lib": "^0.18.11",
+    "markmap-view": "^0.18.10",
+    "zod": "^3.24.2",
+    "zod-validation-error": "^3.4.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
