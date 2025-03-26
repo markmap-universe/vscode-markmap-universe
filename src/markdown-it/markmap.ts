@@ -14,7 +14,6 @@ export function markmap(md: MarkdownIt) {
     // Preprocess: ensure each {% markmap %} directive is preceded by an extra newline,
     // so that it has a blank line before it and is treated as a block.
     md.core.ruler.before('normalize', 'markmap_newline', state => {
-        console.log("qwq")
         state.src = state.src.replace(
             MARKMAP_SINGLE_NEWLINE,
             '$1\n$2'
