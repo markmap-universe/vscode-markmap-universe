@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import * as _ from 'radashi'
+import { template as _template } from 'radashi'
 import { fromError } from 'zod-validation-error'
 import { xxh64 } from "@node-rs/xxhash"
 
@@ -44,4 +44,4 @@ export const template = (
     str: string = "",
     data: Record<string, any>,
     regex: RegExp = /\$\{(.+?)\}/g
-) => _.template(str, data, regex)
+) => _template(str, data, regex)
