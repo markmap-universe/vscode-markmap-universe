@@ -2,14 +2,13 @@ import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { markmapWrapper } from './template'
 import { parseFrontmatter, template } from './utils'
+import { MARKMAP_CLOSE, MARKMAP_OPEN_RE } from '@/shared'
 
 import type MarkdownIt from 'markdown-it'
 
 const transformer = new Transformer()
 
 export function markmap(md: MarkdownIt) {
-    const MARKMAP_OPEN_RE = /^{%\s*markmap\s*(.*?)\s*%}$/
-    const MARKMAP_CLOSE = '{% endmarkmap %}'
     const MARKMAP_SINGLE_NEWLINE = /((?<!\n)\n)([ \t]*{%\s*markmap\b.*?%}\s*)/g
 
     // Preprocess: ensure each {% markmap %} directive is preceded by an extra newline,
