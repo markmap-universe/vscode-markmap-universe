@@ -4,20 +4,26 @@ import { markmapWrapper } from './template'
 import { parseFrontmatter, template } from './utils'
 
 import type MarkdownIt from 'markdown-it'
-import { type RuleBlock } from "markdown-it/lib/parser_block.mjs"
 
 const transformer = new Transformer()
 
 export function markmap(md: MarkdownIt) {
     const MARKMAP_OPEN_RE = /^{%\s*markmap\s*(.*?)\s*%}$/
     const MARKMAP_CLOSE = '{% endmarkmap %}'
+    const MARKMAP_SINGLE_NEWLINE = /((?<!\n)\n)([ \t]*{%\s*markmap\b.*?%}\s*)/g
 
-    const markmapTokenizer: RuleBlock = (
-        state,
-        startLine,
-        endLine,
-        silent
-    ) => {
+    // Preprocess: ensure each {% markmap %} directive is preceded by an extra newline,
+    // so that it has a blank line before it and is treated as a block.
+    md.core.ruler.before('normalize', 'markmap_newline', state => {
+        console.log("qwq")
+        state.src = state.src.replace(
+            MARKMAP_SINGLE_NEWLINE,
+            '$1\n$2'
+        )
+    })
+
+    // Add markmap block rule
+    md.block.ruler.before('fence', 'markmap', (state, startLine, endLine) => {
         const startLineText = state.src.slice(state.bMarks[startLine], state.eMarks[startLine]).trim()
         const match = startLineText.match(MARKMAP_OPEN_RE)
 
@@ -51,9 +57,7 @@ export function markmap(md: MarkdownIt) {
         }
 
         return false
-    }
-
-    md.block.ruler.before('fence', 'markmap', markmapTokenizer, {
+    }, {
         alt: ['paragraph', 'reference', 'blockquote', 'list'],
     })
 
@@ -72,7 +76,6 @@ export function markmap(md: MarkdownIt) {
         // transform content
         const { root } = transformer.transform(content)
         const wrapHTML = markmapWrapper(id, JSON.stringify(root), JSON.stringify(options), height)
-
         const styleHTML = `<style>${template(style, { id })}</style>`
 
         return `${wrapHTML}\n${styleHTML}`
