@@ -6,13 +6,14 @@
 
 Add [hexo-markmap](https://github.com/maxchang3/hexo-markmap/) preview support to VS Code's built-in markdown preview.
 
-![](res/preview.png)
-
 ## Features
 
 - Preview support to VS Code's built-in markdown preview.
 - Syntax highlighting for `hexo-markmap` tags.
 - Folding support for `hexo-markmap` tags.
+
+![](res/preview.png)
+
 
 ## Usage
 
