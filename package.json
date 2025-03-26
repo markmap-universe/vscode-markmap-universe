@@ -6,7 +6,7 @@
   "displayName": "Markdown Preview Hexo Markmap Support",
   "type": "module",
   "repository": {
-    "url": "https://github.com/markmap-universe/hexo-markmap"
+    "url": "https://github.com/markmap-universe/vscode-hexo-markmap"
   },
   "main": "./dist/extension.cjs",
   "icon": "res/icon.png",
