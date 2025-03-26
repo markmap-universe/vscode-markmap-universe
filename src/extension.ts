@@ -1,14 +1,13 @@
-import type MarkdownIt from 'markdown-it'
-import { defineExtension } from 'reactive-vscode'
+import * as vscode from 'vscode';
 import { markmap } from '@/markdown-it/markmap'
-import { logger } from '@/utils'
+import type MarkdownIt from 'markdown-it'
 
 
-export = defineExtension(() => {
-  logger.info('Extension Activated')
+export function activate(ctx: vscode.ExtensionContext) {
   return {
     extendMarkdownIt(md: MarkdownIt) {
       return md.use(markmap)
     }
   }
-})
+}
+

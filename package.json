@@ -34,16 +34,15 @@
     "@types/markdown-it": "^14.1.2",
     "@types/node": "18.x",
     "@types/vscode": "^1.89.0",
-    "markmap-toolbar": "^0.18.10",
-    "radashi": "^12.4.0",
-    "reactive-vscode": "^0.2.13",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "radashi": "^12.4.0", 
+    "markmap-common": "^0.18.9"
   },
   "dependencies": {
     "@node-rs/xxhash": "^1.7.6",
     "gray-matter": "^4.0.3",
-    "markmap-common": "^0.18.9",
+    "markmap-toolbar": "^0.18.10",
     "markmap-lib": "^0.18.11",
     "markmap-view": "^0.18.10",
     "zod": "^3.24.2",
