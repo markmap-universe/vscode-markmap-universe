@@ -1,13 +1,13 @@
 import { defineConfig } from 'tsup'
 
-export default defineConfig([{
+export default defineConfig((options) => [{
   entry: [
     'src/extension.ts',
   ],
   format: ['cjs'],
   target: 'node18',
   clean: true,
-  minify: true,
+  minify: !options.watch,
   external: [
     'vscode',
   ],

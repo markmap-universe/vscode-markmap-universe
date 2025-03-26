@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "tsup --env.NODE_ENV production --treeshake",
-    "dev": "tsup --watch ./src --env.NODE_ENV development",
+    "dev": "tsup --watch ./src --env.NODE_ENV development --sourcemap",
     "typecheck": "tsc --noEmit",
     "release": "pnpm install && bumpp && pnpm run publish",
     "vscode:prepublish": "pnpm run build",
