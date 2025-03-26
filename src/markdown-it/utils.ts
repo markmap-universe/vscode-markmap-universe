@@ -4,7 +4,6 @@ import { fromError } from 'zod-validation-error'
 import { xxh64 } from "@node-rs/xxhash"
 
 import * as vscode from 'vscode'
-import { logger } from '@/utils'
 
 let counter = 0x39
 
@@ -27,9 +26,7 @@ export const generateShortId = (identifier: string) =>
  * @param identifier The identifier to generate a default id.
  */
 export const parseFrontmatter = (data: Record<string, any> = {}, identifier: string) => {
-    console.log(data)
     const parsedData = frontmatterSchema.safeParse(data)
-    logger.info(parsedData.success)
     if (!parsedData.success) {
         const validationError = fromError(parsedData.error)
         vscode.window.showErrorMessage(validationError.message)
