@@ -39,9 +39,6 @@ importers:
       '@types/vscode':
         specifier: ^1.89.0
         version: 1.98.0
-      markmap-common:
-        specifier: ^0.18.9
-        version: 0.18.9
       radashi:
         specifier: ^12.4.0
         version: 12.4.0

@@ -39,8 +39,7 @@
     "@types/vscode": "^1.89.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
-    "radashi": "^12.4.0",
-    "markmap-common": "^0.18.9"
+    "radashi": "^12.4.0"
   },
   "dependencies": {
     "@node-rs/xxhash": "^1.7.6",
