@@ -59,6 +59,7 @@
     "@types/markdown-it": "^14.1.2",
     "@types/node": "18.x",
     "@types/vscode": "^1.89.0",
+    "bumpp": "^10.1.0",
     "cpy": "^11.1.0",
     "radashi": "^12.4.0",
     "tsup": "^8.0.2",
