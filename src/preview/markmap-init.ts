@@ -1,5 +1,6 @@
 import { deriveOptions, Markmap } from 'markmap-view'
 import { Toolbar } from 'markmap-toolbar'
+import { debounce } from "radashi"
 
 const resize = {
   event: new Event('resize'),
@@ -10,14 +11,6 @@ const resize = {
     resize.observer.observe(el)
     el.addEventListener('resize', func)
   },
-}
-
-const debounce = (callback: (...args: any[]) => void, wait: number) => {
-  let timeout: number
-  return (...args: any[]): void => {
-    clearTimeout(timeout)
-    timeout = setTimeout(() => callback(...args), wait)
-  }
 }
 
 const toolbar = (markmapInstance: Markmap) => {
@@ -32,7 +25,7 @@ const init = () => document.querySelectorAll('.markmap-wrap').forEach((wrap) => 
   const svg = wrap.querySelector('svg')
   const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
   wrap.append(toolbar(markmapInstance))
-  resize.observe(wrap, debounce(() => markmapInstance.fit(), 100))
+  resize.observe(wrap, debounce({ delay: 100 }, () => markmapInstance.fit()))
 })
 
 window.addEventListener('vscode.markdown.updateContent', init)

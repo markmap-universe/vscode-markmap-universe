@@ -13,8 +13,8 @@ export default defineConfig([{
   ],
 }, {
   entry: [
-    'src/assets/markmap-init.ts',
-    'src/assets/style.css',
+    'src/preview/markmap-init.ts',
+    'src/preview/style.css',
   ],
   format: ['iife'],
   target: ['chrome89'],
