@@ -8,3 +8,5 @@ src/**
 **/*.map
 **/*.ts
 **/.vscode-test.*
+.github/**
+res/preview.png
