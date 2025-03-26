@@ -1,7 +1,7 @@
 import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { markmapWrapper } from './template'
-import { parseFrontmatter, template } from './utils'
+import { parseFrontmatter, resetCounter, template } from './utils'
 import { MARKMAP_CLOSE, MARKMAP_OPEN_RE } from '@/shared'
 
 import type MarkdownIt from 'markdown-it'
@@ -14,6 +14,7 @@ export function markmap(md: MarkdownIt) {
     // Preprocess: ensure each {% markmap %} directive is preceded by an extra newline,
     // so that it has a blank line before it and is treated as a block.
     md.core.ruler.before('normalize', 'markmap_newline', state => {
+        resetCounter()
         state.src = state.src.replace(
             MARKMAP_SINGLE_NEWLINE,
             '$1\n$2'
@@ -81,5 +82,3 @@ export function markmap(md: MarkdownIt) {
 
     md.renderer.rules.markmap_close = () => ``
 }
-
-

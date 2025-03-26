@@ -1,11 +1,12 @@
 import { z } from 'zod'
+import { createHash } from 'node:crypto'
 import { template as _template } from 'radashi'
 import { fromError } from 'zod-validation-error'
-import { xxh64 } from "@node-rs/xxhash"
-
 import * as vscode from 'vscode'
 
 let counter = 0x39
+
+export const resetCounter = () => { counter = 0x39 }
 
 const frontmatterSchema = z.object({
     id: z.string().optional(),
@@ -18,7 +19,7 @@ const frontmatterSchema = z.object({
  * @param identifier The identifier to generate a short id.
  */
 export const generateShortId = (identifier: string) =>
-    `hmm-${counter++}${xxh64(identifier).toString(16).slice(0, 8)}`
+    `hmm-${counter++}${createHash('md5').update(identifier).digest('hex').slice(0, 8)}`
 
 /**
  * Parse frontmatter with default values.

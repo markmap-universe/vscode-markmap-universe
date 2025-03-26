@@ -61,16 +61,13 @@
     "@types/vscode": "^1.89.0",
     "bumpp": "^10.1.0",
     "cpy": "^11.1.0",
-    "radashi": "^12.4.0",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5"
-  },
-  "dependencies": {
-    "@node-rs/xxhash": "^1.7.6",
     "gray-matter": "^4.0.3",
     "markmap-lib": "^0.18.11",
     "markmap-toolbar": "^0.18.10",
     "markmap-view": "^0.18.10",
+    "radashi": "^12.4.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5",
     "zod": "^3.24.2",
     "zod-validation-error": "^3.4.0"
   },
