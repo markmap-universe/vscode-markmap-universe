@@ -10,3 +10,4 @@ src/**
 **/.vscode-test.*
 .github/**
 res/preview.png
+pnpm-lock.yaml
