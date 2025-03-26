@@ -14,3 +14,21 @@ Add [hexo-markmap](https://github.com/maxchang3/hexo-markmap/) preview support t
 - Syntax highlighting for `hexo-markmap` tags.
 - Folding support for `hexo-markmap` tags.
 
+## Usage
+
+```markdown
+{% markmap %}
+---
+style: |
+  #${id} {
+    height: 300px; /* Equivalent to {% markmap 300px %} */
+  }
+options:
+  colorFreezeLevel: 2
+---
+# Markdown
+# Syntax
+{% endmarkmap %}
+```
+
+See [hexo-markmap documentation](https://github.com/markmap-universe/hexo-markmap#usage) for more details.
