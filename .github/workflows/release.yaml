@@ -4,10 +4,10 @@ permissions:
   contents: write
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
-
 jobs:
   release:
     runs-on: ubuntu-latest
