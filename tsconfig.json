@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2022"],
+    "skipLibCheck": true,
     "module": "Preserve",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
@@ -11,6 +12,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [ "src/*" ]
-    }
-  }
+    },
+  },
+  "exclude": [
+    "src/preview/**",
+    "node_modules",
+  ]
 }

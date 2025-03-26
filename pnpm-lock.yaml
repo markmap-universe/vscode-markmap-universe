@@ -12,7 +12,7 @@ importers:
         specifier: ^14.1.2
         version: 14.1.2
       '@types/node':
-        specifier: 18.x
+        specifier: ~18.19.83
         version: 18.19.83
       '@types/vscode':
         specifier: ^1.89.0
