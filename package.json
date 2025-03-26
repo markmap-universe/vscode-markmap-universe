@@ -1,17 +1,24 @@
 {
+  "private": true,
+  "version": "0.0.1",
   "publisher": "maxchang3",
   "name": "vscode-hexo-markmap",
   "displayName": "Markdown Preview Hexo Markmap Support",
   "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "categories": [
-    "Other"
-  ],
   "main": "./dist/extension.cjs",
+  "icon": "res/icon.png",
   "engines": {
     "vscode": "^1.89.0"
   },
+  "categories": [
+    "Visualization"
+  ],
+  "keywords": [
+    "markmap",
+    "mindmap",
+    "markdown",
+    "hexo"
+  ],
   "activationEvents": [
     "onStartupFinished"
   ],
