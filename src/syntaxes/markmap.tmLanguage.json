@@ -1,0 +1,31 @@
+{
+  "scopeName": "text.markmap",
+  "injectionSelector": "text.html.markdown",
+  "patterns": [
+    {
+      "name": "meta.tag.template.markmap",
+      "begin": "^{%\\s*markmap\\b",
+      "end": "%}",
+      "captures": {
+        "0": { "name": "entity.name.tag.markmap" }
+      },
+      "patterns": [
+        {
+          "match": "\\d+",
+          "name": "constant.numeric.markmap-param"
+        },
+        {
+          "match": "\\w+",
+          "name": "variable.parameter.markmap"
+        }
+      ]
+    },
+    {
+      "name": "meta.tag.template.markmap",
+      "match": "^{%\\s*endmarkmap\\s*%}",
+      "captures": {
+        "0": { "name": "entity.name.tag.markmap" }
+      }
+    }
+  ]
+}

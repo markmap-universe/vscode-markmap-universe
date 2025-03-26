@@ -29,6 +29,18 @@
     ],
     "markdown.previewStyles": [
       "./dist/style.css"
+    ],
+    "grammars": [
+      {
+        "path": "./dist/syntaxes/markmap.tmLanguage.json",
+        "scopeName": "text.markmap",
+        "injectTo": [
+          "text.html.markdown"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.frontmatter": "yaml"
+        }
+      }
     ]
   },
   "scripts": {
@@ -44,15 +56,16 @@
     "@types/markdown-it": "^14.1.2",
     "@types/node": "18.x",
     "@types/vscode": "^1.89.0",
+    "cpy": "^11.1.0",
+    "radashi": "^12.4.0",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "radashi": "^12.4.0"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@node-rs/xxhash": "^1.7.6",
     "gray-matter": "^4.0.3",
-    "markmap-toolbar": "^0.18.10",
     "markmap-lib": "^0.18.11",
+    "markmap-toolbar": "^0.18.10",
     "markmap-view": "^0.18.10",
     "zod": "^3.24.2",
     "zod-validation-error": "^3.4.0"

@@ -1,3 +1,4 @@
+import cpy from "cpy"
 import { defineConfig } from 'tsup'
 
 export default defineConfig((options) => [{
@@ -8,6 +9,9 @@ export default defineConfig((options) => [{
   target: 'node18',
   clean: true,
   minify: !options.watch,
+  async onSuccess() {
+    await cpy('src/syntaxes/*.json', 'dist/syntaxes')
+  },
   external: [
     'vscode',
   ],
@@ -21,5 +25,5 @@ export default defineConfig((options) => [{
   platform: 'browser',
   clean: true,
   dts: false,
-  minify: true,
+  minify: true
 }])
