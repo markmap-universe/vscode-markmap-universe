@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
 import { markmap } from '@/markdown-it/markmap'
-import { foldingProvider } from '@/providers/FoldingRange'
+import { foldingProvider } from '@/providers/foldingRange'
 
 import type MarkdownIt from 'markdown-it'
 
