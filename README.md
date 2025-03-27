@@ -64,7 +64,7 @@ options:
 All frontmatter options are optional.
 
 - **`id`** : Used to define the ID of the `markmap-wrap` element.  
-  - If not specified, a random ID will be generated.
+  - If not specified, an unique ID will be generated.
 
 - **`style`** : Used to define custom CSS styles for the mindmap.
   - The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
