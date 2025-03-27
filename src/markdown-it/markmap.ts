@@ -58,11 +58,7 @@ export function markmap(md: MarkdownIt) {
         alt: ['paragraph', 'reference', 'blockquote', 'list'],
     })
 
-    md.renderer.rules.markmap = (tokens, idx) => {
-        // parse content
-        const _content = tokens[idx].content
-        const height: string | undefined = tokens[idx].meta?.height
-
+    const renderMarkmap = (_content: string, height?: string) => {
         // parse frontmatter
         const { data: rawFrontmatter, content } = matter(_content)
         const frontmatter = parseFrontmatter(rawFrontmatter, content)
@@ -74,5 +70,24 @@ export function markmap(md: MarkdownIt) {
         const styleHTML = `<style>${template(style, { id })}</style>`
 
         return `${wrapHTML}\n${styleHTML}`
+    }
+
+    const defaultFenceRenderer = md.renderer.rules.fence
+
+    if (defaultFenceRenderer) {
+        md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+            const token = tokens[idx]
+            const info = token.info.trim()
+            const content = tokens[idx].content
+            if (info === 'markmap') return renderMarkmap(content)
+
+            return defaultFenceRenderer(tokens, idx, options, env, self)
+        }
+    }
+
+    md.renderer.rules.markmap = (tokens, idx) => {
+        const _content = tokens[idx].content
+        const height: string | undefined = tokens[idx].meta?.height
+        return renderMarkmap(_content, height)
     }
 }
