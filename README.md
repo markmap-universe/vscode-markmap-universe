@@ -1,23 +1,31 @@
-<img src="https://raw.githubusercontent.com/markmap-universe/logo/master/hexo-markmap-logo.png" alt="Hexo logo" width="100" height="100" align="right" />
+<img src="https://raw.githubusercontent.com/markmap-universe/logo/master/universe.png" alt="Markmap Universe logo" width="100" height="100" align="right" />
 
-# Markdown Preview Hexo Markmap Support
+# VS Code Markmap Universe
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/maxchang.vscode-hexo-markmap)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-hexo-markmap) [![Installs](https://img.shields.io/visual-studio-marketplace/i/maxchang.vscode-hexo-markmap)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-hexo-markmap)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) [![Installs](https://img.shields.io/visual-studio-marketplace/i/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe)
 
-Add [hexo-markmap](https://github.com/maxchang3/hexo-markmap/) preview support to VS Code's built-in markdown preview.
+Use mindmap in VS Code's built-in Markdown preview with markmap, seamlessly supporting both `hexo-markmap` tags and `markmap` code blocks.
 
-## Features
+## Features  
 
-- Preview support to VS Code's built-in markdown preview.
-- Syntax highlighting for `hexo-markmap` tags.
-- Folding support for `hexo-markmap` tags.
-- Render `markmap` code blocks directly in the markdown preview.
-  - Supports frontmatter options compatible with [remark-markmap](https://github.com/markmap-universe/remark-markmap).
+- **Real-time Markmap Preview**
+- **`hexo-markmap` Tag Support**:  
+  - Recognize `{% markmap %}...{% endmarkmap %}` syntax.  
+  - Provide folding for `hexo-markmap` tags. 
+- **Code Block Support**: 
+  - Render fenced code blocks with the `markmap` language identifier.  
+- **Customizable Preview**:  
+  - Adjust styles and options via frontmatter.  
+  - Compatible with [remark-markmap](https://github.com/markmap-universe/remark-markmap#frontmatter-options) and [hexo-markmap](https://github.com/markmap-universe/hexo-markmap#options).  
+- **Syntax highlighting**: <small>(Still have some issues)</small>
+  - Highlight Markmap frontmatter and Markdown content. 
 
 ![](res/preview.png)
 
 
 ## Usage
+
+### `hexo-markmap` Tags
 
 ```markdown
 {% markmap %}
@@ -34,4 +42,19 @@ options:
 {% endmarkmap %}
 ```
 
-See [hexo-markmap documentation](https://github.com/markmap-universe/hexo-markmap#usage) for more details.
+### Code Block
+
+````markdown
+```markmap
+---
+style: |
+  #${id} {
+    height: 300px;
+  }
+options:
+  colorFreezeLevel: 2
+---
+# Markdown
+# Syntax
+```
+````
