@@ -78,8 +78,11 @@ export function markmap(md: MarkdownIt) {
         md.renderer.rules.fence = (tokens, idx, options, env, self) => {
             const token = tokens[idx]
             const info = token.info.trim()
-            const content = tokens[idx].content
-            if (info === 'markmap') return renderMarkmap(content)
+
+            if (info === 'markmap') {
+                const content = tokens[idx].content
+                return renderMarkmap(content)
+            }
 
             return defaultFenceRenderer(tokens, idx, options, env, self)
         }
