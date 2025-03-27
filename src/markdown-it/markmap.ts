@@ -9,60 +9,56 @@ import type MarkdownIt from 'markdown-it'
 const transformer = new Transformer()
 
 export function markmap(md: MarkdownIt) {
-    const MARKMAP_SINGLE_NEWLINE = /((?<!\n)\n)([ \t]*{%\s*markmap\b.*?%}\s*)/g
-
-    // Preprocess: ensure each {% markmap %} directive is preceded by an extra newline,
-    // so that it has a blank line before it and is treated as a block.
+    // Reset counter before normalize
     md.core.ruler.before('normalize', 'markmap_newline', state => {
         resetCounter()
-        state.src = state.src.replace(
-            MARKMAP_SINGLE_NEWLINE,
-            '$1\n$2'
-        )
     })
 
     // Add markmap block rule
-    md.block.ruler.before('fence', 'markmap', (state, startLine, endLine) => {
-        const startLineText = state.src.slice(state.bMarks[startLine], state.eMarks[startLine]).trim()
-        const match = startLineText.match(MARKMAP_OPEN_RE)
+    md.block.ruler.before('fence', 'markmap', (state, startLine, endLine, silent) => {
+        let pos = state.bMarks[startLine] + state.tShift[startLine]
+        let max = state.eMarks[startLine]
+
+        if (pos >= max) return false
+
+        const line = state.src.slice(pos, max).trim()
+
+        const match = line.match(MARKMAP_OPEN_RE)
 
         if (!match) return false
 
+        if (silent) return true
+
         const height: string | undefined = match[1]
-        let nextLine = startLine + 1
+        let nextLine = startLine
+        let haveEndMarker = false
 
-
-        // Find {% endmarkmap %}
         while (nextLine < endLine) {
-            if (state.src.slice(state.bMarks[nextLine], state.eMarks[nextLine]).trim() === MARKMAP_CLOSE) {
-                state.line = nextLine + 1
+            pos = state.bMarks[nextLine] + state.tShift[nextLine]
+            max = state.eMarks[nextLine]
 
-                const openToken = state.push('markmap_open', 'div', 1)
-                openToken.block = true
-                openToken.markup = match[0]
-
-                const contentToken = state.push('markmap_content', '', 0)
-                contentToken.content = state.getLines(startLine + 1, nextLine, 0, false)
-                contentToken.meta = { height }
-
-
-                const closeToken = state.push('markmap_close', 'div', -1)
-                closeToken.block = true
-                closeToken.markup = MARKMAP_CLOSE
-
-                return true
+            if (pos < max && state.src.slice(pos, max).trim() === MARKMAP_CLOSE) {
+                haveEndMarker = true
+                break
             }
+
             nextLine++
         }
 
-        return false
+        state.line = nextLine + (haveEndMarker ? 1 : 0)
+
+        const token = state.push('markmap', 'div', 0)
+        token.meta = { height }
+        token.content = state.getLines(startLine + 1, nextLine, state.sCount[startLine], true)
+        token.markup = '{% markmap %}'
+        token.map = [startLine, state.line]
+
+        return true
     }, {
         alt: ['paragraph', 'reference', 'blockquote', 'list'],
     })
 
-    md.renderer.rules.markmap_open = () => ``
-
-    md.renderer.rules.markmap_content = (tokens, idx) => {
+    md.renderer.rules.markmap = (tokens, idx) => {
         // parse content
         const _content = tokens[idx].content
         const height: string | undefined = tokens[idx].meta?.height
@@ -79,6 +75,4 @@ export function markmap(md: MarkdownIt) {
 
         return `${wrapHTML}\n${styleHTML}`
     }
-
-    md.renderer.rules.markmap_close = () => ``
 }
