@@ -4,7 +4,7 @@
   "publisher": "maxchang",
   "name": "vscode-markmap-universe",
   "displayName": "Markmap Universe",
-  "description": "Use mindmap in Markdown previews with markmap, seamlessly supporting both hexo-markmap tags and markmap code blocks.",
+  "description": "Use mindmaps in Markdown previews with support for hexo-markmap and code blocks.",
   "type": "module",
   "repository": {
     "url": "https://github.com/markmap-universe/vscode-markmap-universe"
