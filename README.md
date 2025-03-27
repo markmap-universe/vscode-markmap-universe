@@ -58,3 +58,16 @@ options:
 # Syntax
 ```
 ````
+
+### Frontmatter Options
+
+All frontmatter options are optional.
+
+- **`id`** : Used to define the ID of the `markmap-wrap` element.  
+  - If not specified, a random ID will be generated.
+
+- **`style`** : Used to define custom CSS styles for the mindmap.
+  - The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
+  
+- **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
+
