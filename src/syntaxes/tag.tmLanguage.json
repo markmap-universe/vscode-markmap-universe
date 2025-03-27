@@ -1,0 +1,21 @@
+{
+  "scopeName": "markdown.markmap.tag",
+  "injectionSelector": "L:text.html.markdown",
+  "patterns": [
+    { "include": "#markmap-block" }
+  ],
+  "repository": {
+    "markmap-block": {
+      "name": "markup.markmap",
+      "begin": "^{%\\s*markmap\\s*(.*?)\\s*%}$",
+      "beginCaptures": {
+        "0": { "name": "entity.name.tag.markmap" },
+        "1": { "name": "constant.numeric.markmap-param" }
+      },
+      "end": "^{%\\s*endmarkmap\\s*%}$",
+      "endCaptures": { "0": { "name": "entity.name.tag.markmap" } },
+      "contentName": "meta.embedded.block.markmap",
+      "patterns": [ { "include": "source.markmap" } ]
+    }
+  }
+}

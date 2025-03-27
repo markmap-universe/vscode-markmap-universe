@@ -1,31 +1,28 @@
 {
-  "scopeName": "text.markmap",
-  "injectionSelector": "text.html.markdown",
+  "name": "markmap",
+  "scopeName": "source.markmap",
   "patterns": [
-    {
-      "name": "meta.tag.template.markmap",
-      "begin": "^{%\\s*markmap\\b",
-      "end": "%}",
-      "captures": {
-        "0": { "name": "entity.name.tag.markmap" }
-      },
+    { "include": "#frontMatter" },
+    { "include": "text.html.markdown" }
+  ],
+  "repository": {
+    "frontMatter": {
+      "begin": "\\A(?=(-{3,}))",
+      "end": "^ {,3}\\1-*[ \\t]*$|^[ \\t]*\\.{3}$",
+      "applyEndPatternLast": 1,
+      "endCaptures": { "0": { "name":  "punctuation.definition.tag.frontmatter"} },
       "patterns": [
         {
-          "match": "\\d+",
-          "name": "constant.numeric.markmap-param"
-        },
-        {
-          "match": "\\w+",
-          "name": "variable.parameter.markmap"
+          "begin": "\\A(-{3,})(.*)$",
+          "while": "^(?! {,3}\\1-*[ \\t]*$|[ \\t]*\\.{3}$)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.definition.tag.frontmatter" },
+            "2": { "name": "comment.frontmatter" }
+          },
+          "contentName": "meta.embedded.block.frontmatter",
+          "patterns": [ { "include": "source.yaml" } ]
         }
       ]
-    },
-    {
-      "name": "meta.tag.template.markmap",
-      "match": "^{%\\s*endmarkmap\\s*%}",
-      "captures": {
-        "0": { "name": "entity.name.tag.markmap" }
-      }
     }
-  ]
+  }
 }

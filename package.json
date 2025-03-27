@@ -34,16 +34,46 @@
     "markdown.previewStyles": [
       "./dist/style.css"
     ],
+    "languages": [
+      {
+        "id": "markmap",
+        "extensions": [
+          ".mm.md"
+        ]
+      },
+      {
+        "id": "markmap-markdown-codeblock"
+      }
+    ],
     "grammars": [
       {
+        "language": "markmap",
         "path": "./dist/syntaxes/markmap.tmLanguage.json",
-        "scopeName": "text.markmap",
+        "scopeName": "source.markmap",
+        "embeddedLanguages": {
+          "meta.embedded.block.frontmatter": "source.yaml"
+        }
+      },
+      {
+        "language": "markmap-markdown-codeblock",
+        "scopeName": "markdown.markmap.codeblock",
+        "path": "./dist/syntaxes/codeblock.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.markmap": "markmap"
+        },
         "injectTo": [
           "text.html.markdown"
-        ],
+        ]
+      },
+      {
+        "scopeName": "markdown.markmap.tag",
+        "path": "./dist/syntaxes/tag.tmLanguage.json",
         "embeddedLanguages": {
-          "meta.embedded.block.frontmatter": "yaml"
-        }
+          "meta.embedded.block.markmap": "markmap"
+        },
+        "injectTo": [
+          "text.html.markdown"
+        ]
       }
     ]
   },
