@@ -7,7 +7,7 @@
   "description": "Use mindmap in Markdown previews with markmap, seamlessly supporting both hexo-markmap tags and markmap code blocks.",
   "type": "module",
   "repository": {
-    "url": "https://github.com/markmap-universe/vscode-hexo-markmap"
+    "url": "https://github.com/markmap-universe/vscode-markmap-universe"
   },
   "main": "./dist/extension.cjs",
   "icon": "res/icon.png",
