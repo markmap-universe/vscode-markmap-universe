@@ -2,7 +2,11 @@
 
 # VS Code Markmap Universe
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) [![Installs](https://img.shields.io/visual-studio-marketplace/i/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) [![简体中文](https://img.shields.io/badge/README-简体中文-purple)](README.zh_CN.md)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) 
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) 
+[![Open VSX Version](https://img.shields.io/open-vsx/v/maxchang/vscode-markmap-universe)]((https://open-vsx.org/extension/maxchang/vscode-markmap-universe)) 
+[![Open VSX Installs](https://img.shields.io/open-vsx/dt/maxchang/vscode-markmap-universe)](https://open-vsx.org/extension/maxchang/vscode-markmap-universe) 
+[![简体中文](https://img.shields.io/badge/README-简体中文-purple)](README.zh_CN.md)
 
 Use mindmap in VS Code's built-in Markdown preview with markmap, seamlessly supporting both `hexo-markmap` tags and `markmap` code blocks.
 
