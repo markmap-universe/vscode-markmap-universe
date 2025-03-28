@@ -61,7 +61,7 @@ options:
 
 ### 独立选项
 
-您可以在 `markmap` 标签中单独自定义每个思维导图。
+你可以在 `markmap` 标签中单独自定义每个思维导图。
 
 #### Frontmatter 选项
 
@@ -77,7 +77,7 @@ options:
 
 #### 标签选项
 
-您还可以直接在标签中指定思维导图的高度。
+你还可以直接在标签中指定思维导图的高度。
 
 ```markdown
 {% markmap 300px %}
@@ -89,5 +89,5 @@ options:
 ### 配置
 
 **`markmap-universe.globalOptions`**
-  - **类型**：`object`**：所有思维导图的全局选项。对应 [`Frontmatter 选项`](#frontmatter-选项) 中的 [`options`](#jsonOptions)。
+  - **类型**：`object`：所有思维导图的全局选项。对应 [`Frontmatter 选项`](#frontmatter-选项) 中的 [`options`](#jsonOptions)。
   - **默认值**：`{}`
