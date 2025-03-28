@@ -63,7 +63,11 @@ options:
 ```
 ````
 
-### Frontmatter Options
+### Inline Options
+
+You can customize each mindmap individually in the `markmap` tag.
+
+#### Frontmatter Options
 
 All frontmatter options are optional.
 
@@ -75,3 +79,19 @@ All frontmatter options are optional.
   
 - **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
+#### Tag Options
+
+You can also specify the height of the mindmap directly in the tag.
+
+```markdown
+{% markmap 300px %}
+# Markdown
+# Syntax
+{% endmarkmap %}
+```
+
+### Configuration
+
+**`markmap-universe.globalOptions`**
+  - **Type**: `object`**: Global options for all mindmaps. Correspond to the [`options`](#jsonOptions) in [`Frontmatter Options`](#frontmatter-options).
+  - **Default**: `{}`

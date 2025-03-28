@@ -27,6 +27,60 @@
     "onStartupFinished"
   ],
   "contributes": {
+    "configuration": {
+      "title": "Markmap Universe",
+      "properties": {
+        "markmap-universe.globalOptions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "A list of colors to use as the branch and circle colors for each node."
+            },
+            "colorFreezeLevel": {
+              "type": "number",
+              "description": "Freeze color at the specified level of branches, i.e. all child branches will use the color of their ancestor node at the freeze level. `0` for no freezing at all."
+            },
+            "duration": {
+              "type": "number",
+              "description": "The animation duration when folding/unfolding a node."
+            },
+            "initialExpandLevel": {
+              "type": "number",
+              "description": "The maximum level of nodes to expand on initial render. `-1` for expanding all levels."
+            },
+            "lineWidth": {
+              "type": "number",
+              "description": "The stroke width of lines between nodes."
+            },
+            "maxWidth": {
+              "type": "number",
+              "description": "The max width of each node content. 0 for no limit."
+            },
+            "pan": {
+              "type": "boolean",
+              "description": "Whether to allow panning the markmap."
+            },
+            "spacingHorizontal": {
+              "type": "number"
+            },
+            "spacingVertical": {
+              "type": "number"
+            },
+            "zoom": {
+              "type": "boolean",
+              "description": "Whether to allow zooming the markmap."
+            }
+          },
+          "default": { },
+          "markdownDescription": "Global options for all mindmaps. Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)."
+        }
+      }
+    },
     "markdown.markdownItPlugins": true,
     "markdown.previewScripts": [
       "./dist/markmap-init.global.js"

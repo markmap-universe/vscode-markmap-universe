@@ -59,7 +59,11 @@ options:
 ```
 ````
 
-### Frontmatter 选项
+### 独立选项
+
+您可以在 `markmap` 标签中单独自定义每个思维导图。
+
+#### Frontmatter 选项
 
 所有 frontmatter 选项均为可选。
 
@@ -70,3 +74,20 @@ options:
   - `${id}` 占位符可用于样式字段。在渲染时，它将被替换为 `markmap-wrap` 的实际 ID，确保页面上的每个思维导图元素具有唯一的样式和行为。
   
 - **`options`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
+
+#### 标签选项
+
+您还可以直接在标签中指定思维导图的高度。
+
+```markdown
+{% markmap 300px %}
+# Markdown
+# 语法
+{% endmarkmap %}
+```
+
+### 配置
+
+**`markmap-universe.globalOptions`**
+  - **类型**：`object`**：所有思维导图的全局选项。对应 [`Frontmatter 选项`](#frontmatter-选项) 中的 [`options`](#jsonOptions)。
+  - **默认值**：`{}`
