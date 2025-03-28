@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { template as _template } from 'radashi'
 import { fromError } from 'zod-validation-error'
 import * as vscode from 'vscode'
+import { logger } from '@/shared'
 
 let counter = 0x39
 
@@ -30,7 +31,7 @@ export const parseFrontmatter = (data: Record<string, any> = {}, identifier: str
     const parsedData = frontmatterSchema.safeParse(data)
     if (!parsedData.success) {
         const validationError = fromError(parsedData.error)
-        vscode.window.showErrorMessage(validationError.message)
+        logger.error(validationError.message)
     }
     if (parsedData.data && !parsedData.data.id) {
         parsedData.data.id = generateShortId(identifier)
