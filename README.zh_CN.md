@@ -2,7 +2,11 @@
 
 # VS Code Markmap Universe
 
-[![版本](https://img.shields.io/visual-studio-marketplace/v/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) [![安装量](https://img.shields.io/visual-studio-marketplace/i/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) [![English](https://img.shields.io/badge/README-English-blue)](README.md)
+[![版本](https://img.shields.io/visual-studio-marketplace/v/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) 
+[![安装量](https://img.shields.io/visual-studio-marketplace/i/maxchang.vscode-markmap-universe)](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe) 
+[![Open VSX 版本](https://img.shields.io/open-vsx/v/maxchang/vscode-markmap-universe)](https://open-vsx.org/extension/maxchang/vscode-markmap-universe)
+[![Open VSX 安装量](https://img.shields.io/open-vsx/dt/maxchang/vscode-markmap-universe)](https://open-vsx.org/extension/maxchang/vscode-markmap-universe)
+[![简体中文](https://img.shields.io/badge/README-简体中文-purple)](README.zh_CN.md)
 
 在 VS Code 的内置 Markdown 预览中使用 markmap 思维导图，无缝支持 `hexo-markmap` 标签和 `markmap` 代码块。
 
