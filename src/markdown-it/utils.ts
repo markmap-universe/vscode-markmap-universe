@@ -2,7 +2,6 @@ import { z } from 'zod'
 import { createHash } from 'node:crypto'
 import { template as _template } from 'radashi'
 import { fromError } from 'zod-validation-error'
-import * as vscode from 'vscode'
 import { logger } from '@/shared'
 
 let counter = 0x39
