@@ -101,7 +101,8 @@
         "id": "markmap",
         "extensions": [
           ".mm.md"
-        ]
+        ],
+        "configuration": "./dist/syntaxes/language-configuration.json"
       },
       {
         "id": "markmap-markdown-codeblock"
