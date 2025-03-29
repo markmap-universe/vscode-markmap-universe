@@ -20,8 +20,6 @@
   position: absolute;
   right: .5em;
   bottom: .5em;
-  display: flex;
-  align-items: center;
   border-width: 1px;
   border-radius: .25rem;
   border-style: solid;
