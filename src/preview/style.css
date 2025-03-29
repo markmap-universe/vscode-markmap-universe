@@ -1,19 +1,55 @@
 .markmap-wrap {
   position: relative;
-  height: 500px;
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .markmap-wrap>svg {
+  display: block;
   width: 100%;
-  height: 100%;
+  max-height: 100%;
+  height: auto;
+  min-height: 150px;
+  margin: 0;
+  padding: 0;
 }
 
 .mm-toolbar {
   position: absolute;
   right: .5em;
   bottom: .5em;
+  display: flex;
+  align-items: center;
+  border-width: 1px;
+  border-radius: .25rem;
+  border-style: solid;
+  padding: .25rem;
+  line-height: 1;
 }
+
+.mm-toolbar-item {
+  cursor: pointer;
+}
+
+.mm-toolbar-brand.active,
+.mm-toolbar-brand:hover,
+.mm-toolbar-item.active,
+.mm-toolbar-item:hover {
+  border-radius: 0.25rem;
+  --un-bg-opacity: 1;
+  background-color: rgb(228 228 231 / var(--un-bg-opacity));
+}
+.mm-toolbar-brand.active>*, .mm-toolbar-brand:hover>*, .mm-toolbar-item.active>*, .mm-toolbar-item:hover>* {
+  --un-text-opacity: 1;
+  color: rgb(39 39 42 / var(--un-text-opacity));
+}
+.mm-toolbar-brand.active, .mm-toolbar-item.active {
+  --un-bg-opacity: 1;
+  background-color: rgb(212 212 216 / var(--un-bg-opacity));
+}
+
 /**
   Override of the default markmap styles.
   https://github.com/markmap/markmap/blob/master/packages/markmap-view/src/style.css

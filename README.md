@@ -34,10 +34,6 @@ Use mindmap in VS Code's built-in Markdown preview with markmap, seamlessly supp
 ```markdown
 {% markmap %}
 ---
-style: |
-  #${id} {
-    height: 300px; /* Equivalent to {% markmap 300px %} */
-  }
 options:
   colorFreezeLevel: 2
 ---
@@ -51,10 +47,6 @@ options:
 ````markdown
 ```markmap
 ---
-style: |
-  #${id} {
-    height: 300px;
-  }
 options:
   colorFreezeLevel: 2
 ---
@@ -74,14 +66,15 @@ All frontmatter options are optional.
 - **`id`** : Used to define the ID of the `markmap-wrap` element.  
   - If not specified, an unique ID will be generated.
 
-- **`style`** : Used to define custom CSS styles for the mindmap.
-  - The `${id}` placeholder can be used in the style field. During rendering, it will be replaced with the actual ID of the `markmap-wrap`, ensuring each mindmap element on the page has unique styles and behaviors.
-  
+- **`style`**: Defines custom CSS styles for the mindmap.  
+  - You can use the `${id}` placeholder in the `style` field, which will be replaced with the actual `markmap-wrap` ID during rendering. This ensures that each mindmap element on the page has unique styles and behaviors.  
+    > In previous versions, manually setting the mindmap height was necessary. However, the current version automatically calculates the height based on the content, making manual adjustment unnecessary. You can still use the `style` field to customize other aspects, such as fonts, colors, and more.  
 - **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 #### Tag Options
 
-You can also specify the height of the mindmap directly in the tag.
+You can also specify the height of the mindmap directly in the tag, by default it will be calculated based on the content.
+
 
 ```markdown
 {% markmap 300px %}
