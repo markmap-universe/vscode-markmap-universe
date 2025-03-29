@@ -19,16 +19,26 @@ const toolbar = (markmapInstance: Markmap) => {
   return toolbar.el
 }
 
-const init = () => document.querySelectorAll<HTMLElement>('.markmap-wrap').forEach((wrapper) => {
-  const [root, jsonOptions] = Array.from(wrapper.children, (el) => JSON.parse(el.innerHTML))
-  wrapper.innerHTML = '<svg></svg>'
-  const svg = wrapper.querySelector('svg')
-  const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
-  if (wrapper?.dataset?.toolbar !== 'false') {
-    wrapper.append(toolbar(markmapInstance))
-  }
-  resize.observe(wrapper, debounce({ delay: 100 }, () => markmapInstance.fit()))
-})
+const init = () => {
+  document.querySelectorAll<HTMLElement>('.markmap-wrap').forEach((wrapper) => {
+    if (wrapper.children.length < 2) return
+    const [root, jsonOptions] = Array.from(wrapper.children, (el) => {
+      try {
+        return JSON.parse(el.innerHTML)
+      } catch {
+        console.warn('Failed to parse JSON:', el.innerHTML)
+        return null
+      }
+    })
+    if (!root || !jsonOptions) return
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    const elements: Element[] = [svg]
+    const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
+    if (wrapper.dataset?.toolbar !== 'false') elements.push(toolbar(markmapInstance))
+    wrapper.replaceChildren(...elements)
+    resize.observe(wrapper, debounce({ delay: 100 }, () => markmapInstance.fit()))
+  })
+}
 
 window.addEventListener('vscode.markdown.updateContent', init)
 
