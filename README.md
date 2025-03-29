@@ -91,3 +91,10 @@ You can also specify the height of the mindmap directly in the tag, by default i
 **`markmap-universe.toolbar`**
   - **Type**: `boolean`: Show the toolbar.
   - **Default**: `true`
+
+## Credit
+
+References to the following projects:
+
+- [vscode-markdown-markmap](https://github.com/phoihos/vscode-markdown-markmap)
+- [markmap-vscode](https://github.com/markmap/markmap-vscode/)

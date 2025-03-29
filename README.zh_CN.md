@@ -99,3 +99,10 @@ options:
 **`markmap-universe.toolbar`**
   - **类型**：`boolean`: 显示工具栏。
   - **默认值**：`true`
+
+## 感谢
+
+参考了以下项目：
+
+- [vscode-markdown-markmap](https://github.com/phoihos/vscode-markdown-markmap)
+- [markmap-vscode](https://github.com/markmap/markmap-vscode/)
