@@ -4,20 +4,12 @@ import { debounce } from "radashi"
 
 const resize = {
   event: new Event('resize'),
-  observer: new ResizeObserver((entries) => {
-    entries.forEach((entry) => {
-      entry.target.dispatchEvent(resize.event)
-    })
-  }),
-  listeners: new WeakMap<Element, (event: Event) => void>(),
+  observer: new ResizeObserver((entries) =>
+    entries.forEach((entry) => entry.target.dispatchEvent(resize.event))
+  ),
   observe: (el: Element, func: () => void) => {
-    if (!(el instanceof Element) || typeof func !== "function") return
-
-    if (!resize.listeners.has(el)) {
-      resize.listeners.set(el, func)
-      el.addEventListener("resize", func)
-      resize.observer.observe(el)
-    }
+    resize.observer.observe(el)
+    el.addEventListener('resize', func)
   },
 }
 
