@@ -24,7 +24,8 @@
     "hexo"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onLanguage:markdown",
+    "workspaceContains:README.md"
   ],
   "contributes": {
     "configuration": {
