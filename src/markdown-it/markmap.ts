@@ -2,7 +2,7 @@ import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { markmapWrapper } from './template'
 import { parseFrontmatter, resetCounter, template } from './utils'
-import { globalOptions, MARKMAP_CLOSE, MARKMAP_OPEN_RE } from '@/shared'
+import { config, MARKMAP_CLOSE, MARKMAP_OPEN_RE } from '@/shared'
 
 import type MarkdownIt from 'markdown-it'
 
@@ -64,13 +64,19 @@ export function markmap(md: MarkdownIt) {
         const frontmatter = parseFrontmatter(rawFrontmatter, content)
         const { id, style, options } = frontmatter
         const mergedOptions = {
-            ...globalOptions,
+            ...config.globalOptions,
             ...options,
         }
 
         // transform content
         const { root } = transformer.transform(content)
-        const wrapHTML = markmapWrapper(id, JSON.stringify(root), JSON.stringify(mergedOptions), height)
+        const wrapHTML = markmapWrapper(
+            id,
+            JSON.stringify(root),
+            JSON.stringify(mergedOptions),
+            height,
+            config.toolbar
+        )
         const styleHTML = `<style>${template(style, { id })}</style>`
 
         return `${wrapHTML}\n${styleHTML}`

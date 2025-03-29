@@ -19,13 +19,15 @@ const toolbar = (markmapInstance: Markmap) => {
   return toolbar.el
 }
 
-const init = () => document.querySelectorAll('.markmap-wrap').forEach((wrap) => {
-  const [root, jsonOptions] = [].slice.call(wrap.children).map((el: Element) => JSON.parse(el.innerHTML))
-  wrap.innerHTML = '<svg></svg>'
-  const svg = wrap.querySelector('svg')
+const init = () => document.querySelectorAll<HTMLElement>('.markmap-wrap').forEach((wrapper) => {
+  const [root, jsonOptions] = Array.from(wrapper.children, (el) => JSON.parse(el.innerHTML))
+  wrapper.innerHTML = '<svg></svg>'
+  const svg = wrapper.querySelector('svg')
   const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
-  wrap.append(toolbar(markmapInstance))
-  resize.observe(wrap, debounce({ delay: 100 }, () => markmapInstance.fit()))
+  if (wrapper?.dataset?.toolbar !== 'false') {
+    wrapper.append(toolbar(markmapInstance))
+  }
+  resize.observe(wrapper, debounce({ delay: 100 }, () => markmapInstance.fit()))
 })
 
 window.addEventListener('vscode.markdown.updateContent', init)

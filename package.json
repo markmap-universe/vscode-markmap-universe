@@ -31,8 +31,15 @@
     "configuration": {
       "title": "Markmap Universe",
       "properties": {
+        "markmap-universe.toolbar": {
+          "type": "boolean",
+          "title": "Show Toolbar",
+          "default": true,
+          "description": "Whether to show the toolbar in the preview."
+        },
         "markmap-universe.globalOptions": {
           "type": "object",
+          "title": "Global Options",
           "additionalProperties": false,
           "properties": {
             "color": {
