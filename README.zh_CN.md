@@ -83,6 +83,7 @@ markmap:
 **`markmap-universe.globalOptions`**
   - **类型**：`object`：所有思维导图的全局选项。对应 [`Frontmatter 选项`](#frontmatter-选项) 中的 [`options`](#jsonOptions)。
   - **默认值**：`{}`
+
 **`markmap-universe.toolbar`**
   - **类型**：`boolean`: 显示工具栏。
   - **默认值**：`true`
