@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { template as _template } from 'radashi'
 import { fromError } from 'zod-validation-error'
 import { logger } from '@/shared'
 
@@ -24,12 +23,3 @@ export const parseFrontmatter = (data: Record<string, any> = {}, identifier: str
     }
     return parsedData.data as z.infer<typeof frontmatterSchema>
 }
-
-/**
- * Replace data by name in template strings. 
- */
-export const template = (
-    str: string = "",
-    data: Record<string, any>,
-    regex: RegExp = /\$\{(.+?)\}/g
-) => _template(str, data, regex)

@@ -1,7 +1,7 @@
 import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { markmapWrapper } from './template'
-import { parseFrontmatter, template } from './utils'
+import { parseFrontmatter } from './utils'
 import { config, MARKMAP_CLOSE, MARKMAP_OPEN_RE } from '@/shared'
 
 import type MarkdownIt from 'markdown-it'
@@ -73,7 +73,7 @@ export function markmap(md: MarkdownIt) {
             height,
             config.toolbar
         )
-        const styleHTML = `<style>${template(style, { id })}</style>`
+        const styleHTML = `<style>${style}</style>`
 
         return `${wrapHTML}\n${styleHTML}`
     }
