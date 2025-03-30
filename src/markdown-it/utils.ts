@@ -11,6 +11,7 @@ export const resetCounter = () => { counter = 0x39 }
 const frontmatterSchema = z.object({
     id: z.string().optional(),
     style: z.string().optional().default(""),
+    markmap: z.object({}).passthrough().optional().default({}),
     options: z.object({}).passthrough().optional().default({}),
 })
 

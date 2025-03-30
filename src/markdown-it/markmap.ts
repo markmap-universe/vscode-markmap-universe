@@ -62,10 +62,11 @@ export function markmap(md: MarkdownIt) {
         // parse frontmatter
         const { data: rawFrontmatter, content } = matter(_content)
         const frontmatter = parseFrontmatter(rawFrontmatter, content)
-        const { id, style, options } = frontmatter
+        const { id, style, markmap, options } = frontmatter
         const mergedOptions = {
             ...config.globalOptions,
             ...options,
+            ...markmap
         }
 
         // transform content
