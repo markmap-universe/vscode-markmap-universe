@@ -1,7 +1,7 @@
 import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { markmapWrapper } from './template'
-import { parseFrontmatter, resetCounter, template } from './utils'
+import { parseFrontmatter, template } from './utils'
 import { config, MARKMAP_CLOSE, MARKMAP_OPEN_RE } from '@/shared'
 
 import type MarkdownIt from 'markdown-it'
@@ -9,11 +9,6 @@ import type MarkdownIt from 'markdown-it'
 const transformer = new Transformer()
 
 export function markmap(md: MarkdownIt) {
-    // Reset counter before normalize
-    md.core.ruler.before('normalize', 'markmap_newline', state => {
-        resetCounter()
-    })
-
     // Add markmap block rule
     md.block.ruler.before('fence', 'markmap', (state, startLine, endLine, silent) => {
         let pos = state.bMarks[startLine] + state.tShift[startLine]
@@ -72,9 +67,9 @@ export function markmap(md: MarkdownIt) {
         // transform content
         const { root } = transformer.transform(content)
         const wrapHTML = markmapWrapper(
-            id,
             JSON.stringify(root),
             JSON.stringify(mergedOptions),
+            id,
             height,
             config.toolbar
         )

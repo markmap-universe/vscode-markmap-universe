@@ -1,13 +1,14 @@
 export const markmapWrapper = (
-  id: string,
   root: string,
   jsonOptions: string,
+  id?: string,
   height?: string,
   toolbar?: boolean
 ) =>
     /* html */`
     <div class="markmap-wrap" 
-      id="${id}" ${height ? `style="height: ${height}"` : ''}
+      ${id ? `id="${id}"` : ''}
+      ${height ? `style="height: ${height}"` : ''}
       data-toolbar="${toolbar ?? true}"
     >
       <script type="application/json">${root}</script>

@@ -1,12 +1,7 @@
 import { z } from 'zod'
-import { createHash } from 'node:crypto'
 import { template as _template } from 'radashi'
 import { fromError } from 'zod-validation-error'
 import { logger } from '@/shared'
-
-let counter = 0x39
-
-export const resetCounter = () => { counter = 0x39 }
 
 const frontmatterSchema = z.object({
     id: z.string().optional(),
@@ -15,12 +10,6 @@ const frontmatterSchema = z.object({
     options: z.object({}).passthrough().optional().default({}),
 })
 
-/**
- * Generate a short id from an identifier.
- * @param identifier The identifier to generate a short id.
- */
-export const generateShortId = (identifier: string) =>
-    `hmm-${counter++}${createHash('md5').update(identifier).digest('hex').slice(0, 8)}`
 
 /**
  * Parse frontmatter with default values.
@@ -33,10 +22,7 @@ export const parseFrontmatter = (data: Record<string, any> = {}, identifier: str
         const validationError = fromError(parsedData.error)
         logger.error(validationError.message)
     }
-    if (parsedData.data && !parsedData.data.id) {
-        parsedData.data.id = generateShortId(identifier)
-    }
-    return parsedData.data as Required<z.infer<typeof frontmatterSchema>>
+    return parsedData.data as z.infer<typeof frontmatterSchema>
 }
 
 /**
