@@ -3,30 +3,24 @@ import { Toolbar } from 'markmap-toolbar'
 import { debounce } from "radashi"
 
 const resize = {
-  event: new Event('resize'),
-  observer: new ResizeObserver((entries) => {
-    entries.forEach((entry) => {
-      entry.target.dispatchEvent(resize.event)
-    })
-  }),
-  listeners: new Map<Element, (event: Event) => void>(),
-  observe: (el: Element, func: () => void) => {
-    if (!(el instanceof Element) || typeof func !== "function") return
+  resizeListeners: new Map<HTMLElement, () => void>(),
 
-    if (!resize.listeners.has(el)) {
-      resize.listeners.set(el, func)
-      el.addEventListener("resize", func)
-      resize.observer.observe(el)
+  add(el: HTMLElement, callback: () => void) {
+    if (!(el instanceof HTMLElement) || typeof callback !== "function") return
+    if (!this.resizeListeners.has(el)) {
+      callback() // Call the callback immediately to set the initial size
+      this.resizeListeners.set(el, callback)
     }
   },
-  destroyAll: () => {
-    resize.listeners.forEach((func, el) => {
-      el.removeEventListener("resize", func)
-      resize.observer.unobserve(el)
-    })
-    resize.listeners.clear()
+
+  clear() {
+    this.resizeListeners.clear()
   }
 }
+
+window.addEventListener('resize', () => {
+  resize.resizeListeners.forEach(callback => callback())
+})
 
 const toolbar = (markmapInstance: Markmap) => {
   const toolbar = Toolbar.create(markmapInstance)
@@ -60,12 +54,12 @@ const render = () => {
     const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
     if (wrapper.dataset?.toolbar !== 'false') wrapper.appendChild(toolbar(markmapInstance))
     const autoHeight = !wrapper.style.height
-    resize.observe(wrapper, debounce({ delay: 100 }, () => updateMarkmapSize(markmapInstance, autoHeight)))
+    resize.add(wrapper, debounce({ delay: 100 }, () => updateMarkmapSize(markmapInstance, autoHeight)))
   })
 }
 
 window.addEventListener('vscode.markdown.updateContent', () => {
-  resize.destroyAll()
+  resize.clear()
   render()
 })
 

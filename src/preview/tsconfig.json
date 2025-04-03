@@ -5,6 +5,7 @@
             "DOM",
             "DOM.Iterable"
         ],
+        "noImplicitThis": true
     },
     "exclude": [
         "node_modules"
