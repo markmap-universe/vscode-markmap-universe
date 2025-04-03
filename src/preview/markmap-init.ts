@@ -34,10 +34,12 @@ const toolbar = (markmapInstance: Markmap) => {
   return toolbar.el
 }
 
-const updateMarkmapSize = (markmapInstance: Markmap) => {
-  const svg: SVGSVGElement = markmapInstance.svg.node()
-  const { y2: height } = markmapInstance.state.rect
-  svg.style.height = `${height}`
+const updateMarkmapSize = (markmapInstance: Markmap, autoHeight: boolean) => {
+  if (autoHeight) {
+    const svg: SVGSVGElement = markmapInstance.svg.node()
+    const { y2: height } = markmapInstance.state.rect
+    svg.style.height = `${height}`
+  }
   markmapInstance.fit()
 }
 
@@ -57,7 +59,8 @@ const render = () => {
     wrapper.replaceChildren(svg)
     const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
     if (wrapper.dataset?.toolbar !== 'false') wrapper.appendChild(toolbar(markmapInstance))
-    resize.observe(wrapper, debounce({ delay: 100 }, () => updateMarkmapSize(markmapInstance)))
+    const autoHeight = !wrapper.style.height
+    resize.observe(wrapper, debounce({ delay: 100 }, () => updateMarkmapSize(markmapInstance, autoHeight)))
   })
 }
 
