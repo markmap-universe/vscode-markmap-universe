@@ -84,7 +84,7 @@
               "description": "Whether to allow zooming the markmap."
             }
           },
-          "default": { },
+          "default": {},
           "markdownDescription": "Global options for all mindmaps. Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)."
         }
       }
@@ -155,7 +155,6 @@
     "@types/vscode": "^1.89.0",
     "bumpp": "^10.1.0",
     "cpy": "^11.1.0",
-    "gray-matter": "^4.0.3",
     "markmap-lib": "^0.18.11",
     "markmap-toolbar": "^0.18.10",
     "markmap-view": "^0.18.10",

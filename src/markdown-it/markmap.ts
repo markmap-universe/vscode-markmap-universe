@@ -1,4 +1,3 @@
-import matter from 'gray-matter'
 import { Transformer } from 'markmap-lib'
 import { markmapWrapper } from './template'
 import { parseFrontmatter } from './utils'
@@ -53,19 +52,17 @@ export function markmap(md: MarkdownIt) {
         alt: ['paragraph', 'reference', 'blockquote', 'list'],
     })
 
-    const renderMarkmap = (_content: string, height?: string) => {
+    const renderMarkmap = (content: string, height?: string) => {
+        // transform content
+        const { root, frontmatter: rawFrontmatter } = transformer.transform(content)
         // parse frontmatter
-        const { data: rawFrontmatter, content } = matter(_content)
         const frontmatter = parseFrontmatter(rawFrontmatter, content)
         const { id, markmap, options } = frontmatter
         const mergedOptions = {
             ...config.globalOptions,
             ...options,
-            ...markmap
+            ...markmap // original property name defined in markmap-lib
         }
-
-        // transform content
-        const { root } = transformer.transform(content)
         const wrapHTML = markmapWrapper(
             JSON.stringify(root),
             JSON.stringify(mergedOptions),
