@@ -57,7 +57,7 @@ export function markmap(md: MarkdownIt) {
         // parse frontmatter
         const { data: rawFrontmatter, content } = matter(_content)
         const frontmatter = parseFrontmatter(rawFrontmatter, content)
-        const { id, style, markmap, options } = frontmatter
+        const { id, markmap, options } = frontmatter
         const mergedOptions = {
             ...config.globalOptions,
             ...options,
@@ -73,9 +73,8 @@ export function markmap(md: MarkdownIt) {
             height,
             config.toolbar
         )
-        const styleHTML = `<style>${style}</style>`
 
-        return `${wrapHTML}\n${styleHTML}`
+        return wrapHTML
     }
 
     const defaultFenceRenderer = md.renderer.rules.fence

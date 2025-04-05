@@ -4,7 +4,6 @@ import { logger } from '@/shared'
 
 const frontmatterSchema = z.object({
     id: z.string().optional(),
-    style: z.string().optional().default(""),
     markmap: z.object({}).passthrough().optional().default({}),
     options: z.object({}).passthrough().optional().default({}),
 })
