@@ -97,7 +97,7 @@ You can also specify the height of the mindmap directly in the tag, by default i
 ### Configuration
 
 **`markmap-universe.globalOptions`**
-  - **Type**: `object`: Global options for all mindmaps. Correspond to the [`options`](#jsonOptions) in [`Frontmatter Options`](#frontmatter-options).
+  - **Type**: `object`: Global options for all mindmaps. Correspond to the `markmap` in [`Frontmatter Options`](#frontmatter-options).
   - **Default**: `{}`
 
 **`markmap-universe.toolbar`**

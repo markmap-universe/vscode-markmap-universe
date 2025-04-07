@@ -96,7 +96,7 @@ markmap:
 ### 配置
 
 **`markmap-universe.globalOptions`**
-  - **类型**：`object`：所有思维导图的全局选项。对应 [`Frontmatter 选项`](#frontmatter-选项) 中的 [`options`](#jsonOptions)。
+  - **类型**：`object`：所有思维导图的全局选项。对应 [`Frontmatter 选项`](#frontmatter-选项) 中的 `markmap`。
   - **默认值**：`{}`
 
 **`markmap-universe.toolbar`**
