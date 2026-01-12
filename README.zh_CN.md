@@ -65,22 +65,7 @@ markmap:
 
 - **`id`**：用于定义 `markmap-wrap` 元素的 ID。  
 
-- **`markmap`**/**`options`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
-  - 别名：**`options`**（向后兼容）
-
-<details>
-
-<summary><code>markmap</code> 和 <code>options</code> 的区别</summary>
-
-- **`markmap`（来自 markmap-lib）**  
- 会被[预处理](https://github.com/markmap/markmap/blob/master/packages/markmap-lib/src/plugins/frontmatter/index.ts#L41)（将字符串转换为数组或数字），并优先覆盖 `options`。  
-  - 例如，`color: 'red'` 会被转换为 `color: ['red']`，只有后者在 `markmap-view` 中有效。  
-  - ✅ 推荐使用，以保持与 `markmap` 一致。
-
-- **`options`（来自 markmap-universe）** 会被直接传递给 markmap-view。  
-  - ❌ 不推荐使用，仅为向后兼容而保留。
-
-</details>
+- **`markmap`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
 
 #### 标签选项
 

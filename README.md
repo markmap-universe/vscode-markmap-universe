@@ -66,19 +66,6 @@ All frontmatter options are optional.
 - **`id`** : Used to define the ID of the `markmap-wrap` element.  
 
 - **`markmap`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
-  - alias: **`options`** (for backward compatibility)
-
-<details>
-
-<summary>Difference between <code>markmap</code> and <code>options</code></summary>
-
-- **`markmap` (from markmap-lib)** 
-  Will be [preprocessed](https://github.com/markmap/markmap/blob/master/packages/markmap-lib/src/plugins/frontmatter/index.ts#L41) (converting strings to arrays or numbers) and overrides the legacy `options`.
-  - E.g., `color: 'red'` will be converted to `color: ['red']`, only the latter is valid in `markmap-view`.
-  - ✅ Recommended for consistent use with `markmap`.
-
-- **`options` (from markmap-universe)** Passed directly to markmap-view.  
-  - ❌ Not recommended, maintained only for backward compatibility.
 
 </details>
 
