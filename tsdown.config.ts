@@ -1,5 +1,4 @@
-import cpy from "cpy"
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsdown'
 
 export default defineConfig((options) => [{
   entry: [
@@ -9,21 +8,27 @@ export default defineConfig((options) => [{
   target: 'node18',
   clean: true,
   minify: !options.watch,
-  async onSuccess() {
-    await cpy('src/syntaxes/*.json', 'dist/syntaxes')
-  },
+  copy: [
+    {
+      from: 'src/syntaxes/*.json',
+      to: 'dist/syntaxes',
+    }
+  ],
   external: [
     'vscode',
   ],
 }, {
-  entry: [
-    'src/preview/markmap-init.ts',
-    'src/preview/style.css',
-  ],
+  entry: 'src/preview/markmap-init.ts',
   format: ['iife'],
   target: ['chrome89'],
   platform: 'browser',
   clean: true,
   dts: false,
-  minify: true
+  minify: !options.watch,
+  copy:[
+    {
+      from: 'src/preview/*.css',
+      to: 'dist',
+    }
+  ]
 }])

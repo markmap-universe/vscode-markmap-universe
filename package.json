@@ -12,8 +12,8 @@
   "main": "./dist/extension.cjs",
   "icon": "res/icon.png",
   "engines": {
-    "vscode": "^1.108.1"
-  },
+    "vscode": "^1.89.0"
+    },
   "categories": [
     "Visualization"
   ],
@@ -91,7 +91,7 @@
     },
     "markdown.markdownItPlugins": true,
     "markdown.previewScripts": [
-      "./dist/markmap-init.global.js"
+      "./dist/markmap-init.iife.js"
     ],
     "markdown.previewStyles": [
       "./dist/style.css"
@@ -141,8 +141,8 @@
     ]
   },
   "scripts": {
-    "build": "tsup --env.NODE_ENV production --treeshake",
-    "dev": "tsup --watch ./src --env.NODE_ENV development --sourcemap",
+    "build": "tsdown --env.NODE_ENV production --treeshake",
+    "dev": "tsdown --watch ./src --env.NODE_ENV development --sourcemap",
     "typecheck": "tsc --noEmit",
     "release": "bumpp",
     "vscode:prepublish": "pnpm run build",
@@ -154,12 +154,11 @@
     "@types/node": "~24.10.7",
     "@types/vscode": "^1.108.1",
     "bumpp": "^10.3.2",
-    "cpy": "^12.1.0",
     "markmap-lib": "^0.18.12",
     "markmap-toolbar": "^0.18.12",
     "markmap-view": "^0.18.12",
     "radashi": "^12.7.1",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.19.0",
     "typescript": "^5.9.3",
     "zod": "^4.3.5",
     "zod-validation-error": "^5.0.0"
