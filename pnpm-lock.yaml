@@ -15,7 +15,7 @@ importers:
         specifier: ~24.10.7
         version: 24.10.7
       '@types/vscode':
-        specifier: ^1.108.1
+        specifier: ^1.89.0
         version: 1.108.1
       bumpp:
         specifier: ^10.3.2
