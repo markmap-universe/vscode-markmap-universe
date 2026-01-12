@@ -10,7 +10,7 @@ export default defineConfig((options) => [{
   minify: !options.watch,
   copy: [
     {
-      from: 'src/syntaxes/*.json',
+      from: 'syntaxes/*.json',
       to: 'dist/syntaxes',
     }
   ],
