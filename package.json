@@ -12,7 +12,7 @@
   "main": "./dist/extension.cjs",
   "icon": "res/icon.png",
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.108.1"
   },
   "categories": [
     "Visualization"
@@ -151,18 +151,18 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "~18.19.83",
-    "@types/vscode": "^1.89.0",
-    "bumpp": "^10.1.0",
-    "cpy": "^11.1.0",
-    "markmap-lib": "^0.18.11",
-    "markmap-toolbar": "^0.18.10",
-    "markmap-view": "^0.18.10",
-    "radashi": "^12.4.0",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "zod": "^3.24.2",
-    "zod-validation-error": "^3.4.0"
+    "@types/node": "~24.10.7",
+    "@types/vscode": "^1.108.1",
+    "bumpp": "^10.3.2",
+    "cpy": "^12.1.0",
+    "markmap-lib": "^0.18.12",
+    "markmap-toolbar": "^0.18.12",
+    "markmap-view": "^0.18.12",
+    "radashi": "^12.7.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "zod": "^4.3.5",
+    "zod-validation-error": "^5.0.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
