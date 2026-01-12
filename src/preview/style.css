@@ -18,7 +18,7 @@
 
 .mm-toolbar {
   position: absolute;
-  right: .5em;
+  right: -1.5em;
   bottom: .5em;
   border-width: 1px;
   border-radius: .25rem;
