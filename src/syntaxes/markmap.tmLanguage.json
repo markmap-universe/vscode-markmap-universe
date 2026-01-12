@@ -7,22 +7,16 @@
   ],
   "repository": {
     "frontMatter": {
-      "begin": "\\A(?=(-{3,}))",
-      "end": "^ {,3}\\1-*[ \\t]*$|^[ \\t]*\\.{3}$",
-      "applyEndPatternLast": 1,
-      "endCaptures": { "0": { "name":  "punctuation.definition.tag.frontmatter"} },
-      "patterns": [
-        {
-          "begin": "\\A(-{3,})(.*)$",
-          "while": "^(?! {,3}\\1-*[ \\t]*$|[ \\t]*\\.{3}$)",
-          "beginCaptures": {
-            "1": { "name": "punctuation.definition.tag.frontmatter" },
-            "2": { "name": "comment.frontmatter" }
-          },
-          "contentName": "meta.embedded.block.frontmatter",
-          "patterns": [ { "include": "source.yaml" } ]
-        }
-      ]
+      "begin": "^(-{3,})[ \\t]*$",
+      "end": "^(-{3,}|\\.{3})[ \\t]*$",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.frontmatter" }
+      },
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.frontmatter" }
+      },
+      "contentName": "meta.embedded.block.frontmatter",
+      "patterns": [ { "include": "source.yaml" } ]
     }
   }
 }
