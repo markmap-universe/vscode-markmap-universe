@@ -21,7 +21,7 @@ Use mindmap in VS Code's built-in Markdown preview with markmap, seamlessly supp
 - **Customizable Preview**:  
   - Adjust styles and options via frontmatter.  
   - Compatible with [remark-markmap](https://github.com/markmap-universe/remark-markmap#frontmatter-options) and [hexo-markmap](https://github.com/markmap-universe/hexo-markmap#options).  
-- **Syntax highlighting**: <small>(Still have some issues)</small>
+- **Syntax highlighting**:
   - Highlight Markmap frontmatter and Markdown content. 
 
 ![](res/preview.png)
