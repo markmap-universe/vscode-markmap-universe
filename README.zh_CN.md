@@ -21,7 +21,7 @@
 - **可自定义预览**：  
   - 通过 frontmatter 调整样式和选项。  
   - 兼容 [remark-markmap](https://github.com/markmap-universe/remark-markmap#frontmatter-options) 和 [hexo-markmap](https://github.com/markmap-universe/hexo-markmap#options)。  
-- **语法高亮**：<small>（仍存在一些问题）</small>  
+- **语法高亮**：
   - 高亮显示 Markmap frontmatter 和 Markdown 内容。
 
 ![](res/preview.png)
