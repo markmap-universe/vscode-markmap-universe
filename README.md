@@ -8,9 +8,9 @@
 [![Open VSX Installs](https://img.shields.io/open-vsx/dt/maxchang/vscode-markmap-universe)](https://open-vsx.org/extension/maxchang/vscode-markmap-universe)
 [![简体中文](https://img.shields.io/badge/README-简体中文-purple)](README.zh_CN.md)
 
-Use mindmap in VS Code's built-in Markdown preview with markmap, seamlessly supporting both `hexo-markmap` tags and `markmap` code blocks.
+Create interactive mindmaps from Markdown in VS Code's built-in preview using markmap, with seamless support for both `hexo-markmap` tags and `markmap` code blocks.
 
-## Features  
+## Features
 
 - **Real-time Markmap Preview**
 - **`hexo-markmap` Tag Support**:  
@@ -63,15 +63,13 @@ You can customize each mindmap individually in the `markmap` tag.
 
 All frontmatter options are optional.
 
-- **`id`** : Used to define the ID of the `markmap-wrap` element.  
+- **`id`** : Used to define the ID of the `markmap-wrap` element.
 
 - **`markmap`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
-</details>
+#### `hexo-markmap` Tag Options
 
-#### Tag Options
-
-You can also specify the height of the mindmap directly in the tag, by default it will be calculated based on the content.
+For the `hexo-markmap` tag, you can also specify the height of the mindmap directly in the tag, by default it will be calculated based on the content.
 
 
 ```markdown

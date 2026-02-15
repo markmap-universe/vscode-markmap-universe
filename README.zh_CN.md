@@ -8,9 +8,9 @@
 [![Open VSX 安装量](https://img.shields.io/open-vsx/dt/maxchang/vscode-markmap-universe)](https://open-vsx.org/extension/maxchang/vscode-markmap-universe)
 [![简体中文](https://img.shields.io/badge/README-简体中文-purple)](README.zh_CN.md)
 
-在 VS Code 的内置 Markdown 预览中使用 markmap 思维导图，无缝支持 `hexo-markmap` 标签和 `markmap` 代码块。
+在 VS Code 内置的 Markdown 预览中使用 markmap 创建可交互的思维导图，无缝支持 `hexo-markmap` 标签和 `markmap` 代码块两种语法。
 
-## 功能  
+## 功能特性
 
 - **实时 Markmap 预览**
 - **支持 `hexo-markmap` 标签**：  
@@ -28,6 +28,8 @@
 
 
 ## 使用方法
+
+在 Markdown 文件中，你可以使用 `hexo-markmap` 标签或 `markmap` 代码块来创建思维导图。当预览打开时，插件会自动渲染这些内容。
 
 ### `hexo-markmap` 标签
 
@@ -55,21 +57,21 @@ markmap:
 ```
 ````
 
-### 独立选项
+### 行内配置
 
 你可以在 `markmap` 标签中单独自定义每个思维导图。
 
 #### Frontmatter 选项
 
-所有 frontmatter 选项均为可选。
+在 Markmap 中，你可以通过 frontmatter 来配置思维导图的样式和选项。所有 frontmatter 选项都是可选的。
 
 - **`id`**：用于定义 `markmap-wrap` 元素的 ID。  
 
 - **`markmap`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
 
-#### 标签选项
+#### `hexo-markmap` 标签选项
 
-你还可以直接在标签中指定思维导图的高度，默认情况下会根据内容进行计算。
+对于 `hexo-markmap` 标签，你可以直接在标签中指定思维导图的高度，默认情况下会根据内容进行计算。
 
 ```markdown
 {% markmap 300px %}
@@ -78,7 +80,7 @@ markmap:
 {% endmarkmap %}
 ```
 
-### 配置
+### 插件配置
 
 **`markmap-universe.globalOptions`**
   - **类型**：`object`：所有思维导图的全局选项。对应 [`Frontmatter 选项`](#frontmatter-选项) 中的 `markmap`。
